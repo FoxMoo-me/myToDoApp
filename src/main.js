@@ -1,11 +1,11 @@
-import { createClient } from '@supabase/supabase-js';
-console.log('Supabase URL:', import.meta.env.VITE_SUPABASE_URL);
-console.log('Supabase Key:', import.meta.env.VITE_SUPABASE_KEY);
+// import { createClient } from '@supabase/supabase-js';
+// console.log('Supabase URL:', import.meta.env.VITE_SUPABASE_URL);
+// console.log('Supabase Key:', import.meta.env.VITE_SUPABASE_KEY);
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
-const supabase = createClient(supabaseUrl, supabaseKey);
-
+// const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+// const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+// const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from './api/supabase';
 // Test Supabase connection (optional)
 console.log('Supabase client initialized:', supabase);
 
@@ -95,6 +95,8 @@ function addTask(task) {
 
     listItem.appendChild(button);
     todoList.appendChild(listItem);
+
+
 }
 
 // Add submit event listener to the form
@@ -117,6 +119,13 @@ todoForm.addEventListener('submit', (event) => {
 
 
 
+
+const { data, error } = await supabase
+  .from('todos')
+  .insert([
+    { some_column: 'someValue', other_column: 'otherValue' },
+  ])
+  .select()
 
 
 
