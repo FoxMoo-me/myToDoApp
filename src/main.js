@@ -1,4 +1,19 @@
-// import './style.css'
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Test Supabase connection (optional)
+console.log('Supabase client initialized:', supabase);
+
+// import { createClient } from '@supabase/supabase-js'
+// const supabaseUrl = 'https://filhoaqtjtbbbhgxrmoe.supabase.co'
+// const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpbGhvYXF0anRiYmJoZ3hybW9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzMxNDg2NjUsImV4cCI6MjA0ODcyNDY2NX0._LrUuyHcX-hPo_kua-w613Py-uxo8h4zcEElIBBz-_w'
+// const supabaseKey = process.env.SUPABASE_KEY
+// const supabase = createClient(supabaseUrl, supabaseKey)
+// console.log(supabase);
+
 // Selecting elements
 const todoForm = document.getElementById("todo-form");
 const todoInput = document.getElementById("todo-input");
